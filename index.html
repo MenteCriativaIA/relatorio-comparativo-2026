@@ -1,824 +1,414 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SPELLTECH · Relatório Comparativo 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg-void:#07040e;
-  --bg-primary:#0d0819;
-  --bg-secondary:#140f24;
-  --bg-card:#1a1330;
-  --bg-card-hover:#231b42;
-  --purple-950:#2e1065;
-  --purple-900:#3b0764;
-  --purple-800:#4c1d95;
-  --purple-700:#5b21b6;
-  --purple-600:#7c3aed;
-  --purple-500:#8b5cf6;
-  --purple-400:#a78bfa;
-  --purple-300:#c4b5fd;
-  --purple-200:#ddd6fe;
-  --purple-100:#ede9fe;
-  --gold:#f59e0b;
-  --gold-light:#fbbf24;
-  --red:#ef4444;
-  --red-soft:#fca5a5;
-  --green:#10b981;
-  --green-soft:#6ee7b7;
-  --cyan:#22d3ee;
-  --text-primary:#f5f3ff;
-  --text-secondary:#c4b5fd;
-  --text-muted:#7c6f9b;
-  --border:#2e2449;
-  --radius:16px;
-  --radius-sm:10px;
-  --radius-xs:6px;
-  --shadow-card:0 4px 30px rgba(124,58,237,.08);
-  --shadow-glow:0 0 40px rgba(124,58,237,.15);
-  --transition:all .3s cubic-bezier(.4,0,.2,1);
-}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Manrope',sans-serif;
-  background:var(--bg-void);
-  color:var(--text-primary);
-  line-height:1.6;
-  overflow-x:hidden;
-}
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--bg-primary)}
-::-webkit-scrollbar-thumb{background:var(--purple-700);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:var(--purple-600)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Ação Estratégico: Transição Tributária</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome para Ícones -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Configuração de Cores Premium (Inspirado em paletas de clínicas/psicologia) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488', // Teal Principal
+                            700: '#0f766e',
+                            900: '#134e4a',
+                        },
+                        accent: {
+                            500: '#f59e0b', // Amber para alertas
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-/* === ANIMATIONS === */
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(124,58,237,.2)}50%{box-shadow:0 0 40px rgba(124,58,237,.4)}}
-@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-@keyframes sparkle{0%,100%{opacity:0;transform:scale(0) rotate(0deg)}50%{opacity:1;transform:scale(1) rotate(180deg)}}
-@keyframes slideDown{from{opacity:0;max-height:0}to{opacity:1;max-height:2000px}}
+    <style>
+        /* Suavização de rolagem e estilos base */
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8fafc; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
 
-.fade-up{animation:fadeUp .7s ease-out forwards;opacity:0}
-.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}
-.delay-4{animation-delay:.4s}.delay-5{animation-delay:.5s}.delay-6{animation-delay:.6s}
-
-/* === NAV === */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:0 24px;
-  background:rgba(7,4,14,.85);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(124,58,237,.1);
-  transition:var(--transition);
-}
-.nav.scrolled{border-bottom-color:rgba(124,58,237,.25);box-shadow:0 4px 30px rgba(0,0,0,.3)}
-.nav-inner{
-  max-width:1400px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;
-  height:68px;
-}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo-icon{
-  width:38px;height:38px;
-  background:linear-gradient(135deg,var(--purple-600),var(--purple-800));
-  border-radius:10px;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 20px rgba(124,58,237,.4);
-}
-.nav-logo-text{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--text-primary)}
-.nav-logo-text span{color:var(--purple-400)}
-.nav-links{display:flex;gap:8px;align-items:center}
-.nav-links a{
-  color:var(--text-muted);text-decoration:none;font-size:13px;font-weight:600;
-  padding:8px 16px;border-radius:var(--radius-xs);transition:var(--transition);
-  text-transform:uppercase;letter-spacing:.05em;
-}
-.nav-links a:hover,.nav-links a.active{color:var(--purple-300);background:rgba(124,58,237,.1)}
-.nav-date{
-  font-size:11px;font-weight:700;color:var(--purple-500);
-  background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);
-  padding:6px 14px;border-radius:20px;letter-spacing:.05em;
-}
-.mobile-menu-btn{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px}
-
-/* === HERO === */
-.hero{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;padding:100px 24px 60px;
-}
-.hero-bg{
-  position:absolute;inset:0;z-index:0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 20%,rgba(91,33,182,.2),transparent),
-    radial-gradient(ellipse 60% 50% at 20% 80%,rgba(124,58,237,.1),transparent),
-    radial-gradient(ellipse 60% 50% at 80% 80%,rgba(76,29,149,.1),transparent),
-    var(--bg-void);
-}
-.hero-orb{
-  position:absolute;border-radius:50%;filter:blur(80px);opacity:.15;
-  animation:float 8s ease-in-out infinite;
-}
-.hero-orb-1{width:500px;height:500px;background:var(--purple-600);top:-100px;left:-100px;animation-delay:0s}
-.hero-orb-2{width:400px;height:400px;background:var(--purple-800);bottom:-80px;right:-80px;animation-delay:3s}
-.hero-orb-3{width:250px;height:250px;background:#a855f7;top:40%;left:60%;animation-delay:5s}
-.hero-sparkles{position:absolute;inset:0;z-index:1;pointer-events:none}
-.sparkle{
-  position:absolute;width:4px;height:4px;background:var(--purple-400);
-  border-radius:50%;animation:sparkle 3s ease-in-out infinite;
-}
-.hero-content{position:relative;z-index:2;text-align:center;max-width:900px}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);
-  padding:8px 20px;border-radius:30px;margin-bottom:28px;
-  font-size:12px;font-weight:700;color:var(--purple-300);
-  text-transform:uppercase;letter-spacing:.1em;
-}
-.hero-badge i{color:var(--gold)}
-.hero-title{
-  font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:.95;
-  letter-spacing:-.03em;margin-bottom:24px;
-  background:linear-gradient(135deg,var(--text-primary) 0%,var(--purple-300) 50%,var(--purple-500) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.hero-subtitle{
-  font-size:clamp(1rem,2vw,1.2rem);color:var(--text-secondary);
-  max-width:600px;margin:0 auto 40px;font-weight:400;line-height:1.7;
-}
-.hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-.hero-stat{text-align:center}
-.hero-stat-num{font-size:2rem;font-weight:800;color:var(--purple-300);line-height:1}
-.hero-stat-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-top:6px}
-.hero-scroll{
-  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:.1em;
-  text-decoration:none;animation:float 3s ease-in-out infinite;
-}
-
-/* === SECTIONS === */
-.section{padding:80px 24px;position:relative}
-.section-inner{max-width:1400px;margin:0 auto}
-.section-header{text-align:center;margin-bottom:50px}
-.section-tag{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:11px;font-weight:700;color:var(--purple-400);
-  text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;
-}
-.section-tag::before,.section-tag::after{content:'';width:20px;height:1px;background:var(--purple-700)}
-.section-title{
-  font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;
-  letter-spacing:-.02em;line-height:1.1;margin-bottom:16px;
-}
-.section-desc{font-size:16px;color:var(--text-muted);max-width:550px;margin:0 auto}
-
-/* === FILTERS === */
-.controls-bar{
-  position:sticky;top:68px;z-index:50;
-  background:rgba(7,4,14,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(124,58,237,.1);
-  padding:16px 24px;
-  transition:var(--transition);
-}
-.controls-inner{
-  max-width:1400px;margin:0 auto;
-  display:flex;flex-wrap:wrap;align-items:center;gap:12px;
-}
-.filter-group{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.filter-label{
-  font-size:11px;font-weight:700;color:var(--text-muted);
-  text-transform:uppercase;letter-spacing:.08em;margin-right:4px;white-space:nowrap;
-}
-.filter-btn{
-  background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.15);
-  color:var(--text-secondary);padding:8px 18px;border-radius:30px;
-  font-size:12px;font-weight:600;cursor:pointer;transition:var(--transition);
-  white-space:nowrap;font-family:inherit;
-}
-.filter-btn:hover{background:rgba(124,58,237,.15);border-color:rgba(124,58,237,.3);color:var(--text-primary)}
-.filter-btn.active{
-  background:linear-gradient(135deg,var(--purple-700),var(--purple-600));
-  border-color:var(--purple-500);color:#fff;
-  box-shadow:0 0 20px rgba(124,58,237,.3);
-}
-.view-toggle{display:flex;gap:4px;margin-left:auto}
-.view-btn{
-  width:38px;height:38px;display:flex;align-items:center;justify-content:center;
-  background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.15);
-  border-radius:var(--radius-xs);color:var(--text-muted);cursor:pointer;
-  transition:var(--transition);
-}
-.view-btn:hover{color:var(--text-primary);background:rgba(124,58,237,.15)}
-.view-btn.active{background:var(--purple-700);border-color:var(--purple-500);color:#fff}
-.sort-select{
-  background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.15);
-  color:var(--text-secondary);padding:8px 14px;border-radius:30px;
-  font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;
-  appearance:none;-webkit-appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a78bfa' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 12px center;
-  padding-right:32px;
-}
-.sort-select option{background:var(--bg-card);color:var(--text-primary)}
-
-/* === RESULT COUNT === */
-.result-bar{
-  max-width:1400px;margin:0 auto;padding:20px 0 0;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.result-count{font-size:13px;color:var(--text-muted);font-weight:500}
-.result-count strong{color:var(--purple-300);font-weight:700}
-
-/* === CARDS GRID === */
-.cards-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
-  gap:20px;padding:20px 0 60px;
-}
-.phone-card{
-  background:var(--bg-card);border:1px solid var(--border);
-  border-radius:var(--radius);overflow:hidden;
-  transition:var(--transition);cursor:pointer;position:relative;
-}
-.phone-card:hover{
-  border-color:rgba(124,58,237,.3);
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-glow);
-}
-.phone-card.hidden{display:none}
-.card-top{padding:20px 20px 0;display:flex;justify-content:space-between;align-items:flex-start}
-.card-brand{
-  font-size:10px;font-weight:700;text-transform:uppercase;
-  letter-spacing:.1em;padding:4px 10px;border-radius:20px;
-}
-.brand-poco{background:rgba(239,68,68,.1);color:#fca5a5;border:1px solid rgba(239,68,68,.2)}
-.brand-redmi{background:rgba(249,115,22,.1);color:#fdba74;border:1px solid rgba(249,115,22,.2)}
-.brand-realme{background:rgba(34,211,238,.1);color:#67e8f9;border:1px solid rgba(34,211,238,.2)}
-.card-badges{display:flex;gap:6px}
-.card-badge{
-  font-size:9px;font-weight:700;padding:3px 8px;border-radius:12px;
-  text-transform:uppercase;letter-spacing:.05em;
-}
-.badge-5g{background:rgba(16,185,129,.12);color:var(--green-soft);border:1px solid rgba(16,185,129,.25)}
-.badge-warn{background:rgba(239,68,68,.12);color:var(--red-soft);border:1px solid rgba(239,68,68,.25)}
-.badge-best{background:rgba(245,158,11,.12);color:var(--gold-light);border:1px solid rgba(245,158,11,.25)}
-.card-body{padding:16px 20px 20px}
-.card-name{font-size:17px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px;line-height:1.3}
-.card-storage{font-size:12px;color:var(--text-muted);margin-bottom:16px;font-weight:500}
-.card-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
-.spec-item{display:flex;flex-direction:column;gap:2px}
-.spec-label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
-.spec-value{font-size:12px;color:var(--text-secondary);font-weight:500}
-.card-footer{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:16px 20px;border-top:1px solid var(--border);
-  background:rgba(124,58,237,.02);
-}
-.card-price{font-size:22px;font-weight:800;color:var(--text-primary)}
-.card-price small{font-size:13px;font-weight:500;color:var(--text-muted)}
-.card-cpg{
-  font-size:11px;font-weight:700;padding:4px 10px;border-radius:12px;
-}
-.cpg-good{background:rgba(16,185,129,.1);color:var(--green-soft)}
-.cpg-ok{background:rgba(245,158,11,.1);color:var(--gold-light)}
-.cpg-bad{background:rgba(239,68,68,.1);color:var(--red-soft)}
-.card-expand{
-  padding:0 20px 16px;overflow:hidden;max-height:0;
-  transition:max-height .4s ease,padding .3s ease;opacity:0;
-}
-.phone-card.expanded .card-expand{max-height:400px;padding:0 20px 16px;opacity:1}
-.expand-content{
-  border-top:1px solid var(--border);padding-top:14px;
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;
-}
-.expand-hint{
-  display:flex;align-items:center;justify-content:center;gap:6px;
-  padding:10px;color:var(--text-muted);font-size:11px;font-weight:600;
-  text-transform:uppercase;letter-spacing:.06em;
-}
-.expand-hint i{transition:transform .3s ease}
-.phone-card.expanded .expand-hint i{transform:rotate(180deg)}
-
-/* === TABLE VIEW === */
-.table-wrap{
-  overflow-x:auto;padding:20px 0 60px;display:none;
-  border-radius:var(--radius);border:1px solid var(--border);
-  background:var(--bg-card);
-}
-.table-wrap.active{display:block}
-.data-table{width:100%;border-collapse:collapse;min-width:1100px;font-size:13px}
-.data-table thead{background:rgba(124,58,237,.08)}
-.data-table th{
-  padding:14px 16px;text-align:left;font-size:10px;font-weight:700;
-  text-transform:uppercase;letter-spacing:.08em;color:var(--purple-400);
-  border-bottom:1px solid var(--border);white-space:nowrap;
-}
-.data-table td{
-  padding:14px 16px;border-bottom:1px solid rgba(46,36,73,.5);
-  color:var(--text-secondary);font-weight:500;vertical-align:middle;
-}
-.data-table tbody tr{transition:var(--transition)}
-.data-table tbody tr:hover{background:rgba(124,58,237,.05)}
-.data-table tbody tr.hidden{display:none}
-.table-model{font-weight:700!important;color:var(--text-primary)!important;white-space:nowrap}
-.table-price{font-weight:800!important;color:var(--text-primary)!important;font-size:15px!important;white-space:nowrap}
-.table-cpg{font-weight:700!important;white-space:nowrap}
-.table-conn{
-  font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px;
-  display:inline-block;text-transform:uppercase;
-}
-.conn-5g{background:rgba(16,185,129,.1);color:var(--green-soft)}
-.conn-4g{background:rgba(124,58,237,.1);color:var(--purple-300)}
-
-/* === HIGHLIGHTS === */
-.highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.highlight-card{
-  background:var(--bg-card);border:1px solid var(--border);
-  border-radius:var(--radius);padding:28px;transition:var(--transition);
-  position:relative;overflow:hidden;
-}
-.highlight-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-}
-.highlight-card:hover{border-color:rgba(124,58,237,.3);transform:translateY(-2px)}
-.hc-green::before{background:linear-gradient(90deg,var(--green),#34d399)}
-.hc-red::before{background:linear-gradient(90deg,var(--red),#f87171)}
-.hc-gold::before{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
-.hc-purple::before{background:linear-gradient(90deg,var(--purple-600),var(--purple-400))}
-.hc-icon{
-  width:48px;height:48px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
-}
-.hc-green .hc-icon{background:rgba(16,185,129,.1);color:var(--green)}
-.hc-red .hc-icon{background:rgba(239,68,68,.1);color:var(--red)}
-.hc-gold .hc-icon{background:rgba(245,158,11,.1);color:var(--gold)}
-.hc-purple .hc-icon{background:rgba(124,58,237,.1);color:var(--purple-400)}
-.hc-title{font-size:16px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
-.hc-desc{font-size:13px;color:var(--text-muted);line-height:1.7}
-.hc-phone{
-  display:inline-flex;align-items:center;gap:6px;
-  margin-top:14px;padding:6px 14px;border-radius:20px;
-  font-size:12px;font-weight:700;
-}
-.hc-green .hc-phone{background:rgba(16,185,129,.08);color:var(--green-soft);border:1px solid rgba(16,185,129,.2)}
-.hc-red .hc-phone{background:rgba(239,68,68,.08);color:var(--red-soft);border:1px solid rgba(239,68,68,.2)}
-.hc-gold .hc-phone{background:rgba(245,158,11,.08);color:var(--gold-light);border:1px solid rgba(245,158,11,.2)}
-.hc-purple .hc-phone{background:rgba(124,58,237,.08);color:var(--purple-300);border:1px solid rgba(124,58,237,.2)}
-
-/* === DISCLAIMER === */
-.disclaimer{
-  max-width:900px;margin:0 auto;
-  background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);
-  border-radius:var(--radius);padding:24px 28px;
-  display:flex;gap:16px;align-items:flex-start;
-}
-.disclaimer-icon{flex-shrink:0;color:var(--gold);margin-top:2px}
-.disclaimer-text{font-size:13px;color:var(--text-muted);line-height:1.7}
-.disclaimer-text strong{color:var(--gold-light)}
-
-/* === FOOTER === */
-.footer{
-  border-top:1px solid var(--border);padding:40px 24px;
-  text-align:center;
-}
-.footer-inner{max-width:1400px;margin:0 auto}
-.footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px}
-.footer-text{font-size:12px;color:var(--text-muted);line-height:1.8}
-
-/* === BACK TO TOP === */
-.back-top{
-  position:fixed;bottom:30px;right:30px;z-index:90;
-  width:48px;height:48px;border-radius:50%;
-  background:linear-gradient(135deg,var(--purple-700),var(--purple-600));
-  border:none;color:#fff;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 30px rgba(124,58,237,.4);
-  opacity:0;visibility:hidden;transform:translateY(20px);
-  transition:var(--transition);
-}
-.back-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
-.back-top:hover{transform:translateY(-3px);box-shadow:0 0 40px rgba(124,58,237,.6)}
-
-/* === RESPONSIVE === */
-@media(max-width:1024px){
-  .cards-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
-}
-@media(max-width:768px){
-  .nav-links{display:none}
-  .mobile-menu-btn{display:block}
-  .hero-stats{gap:24px}
-  .controls-inner{flex-direction:column;align-items:stretch}
-  .filter-group{justify-content:center}
-  .view-toggle{margin-left:0;justify-content:center}
-  .sort-select{width:100%;text-align:center}
-  .cards-grid{grid-template-columns:1fr}
-  .highlights-grid{grid-template-columns:1fr}
-  .result-bar{flex-direction:column;gap:8px;align-items:flex-start}
-  .disclaimer{flex-direction:column}
-}
-@media(max-width:480px){
-  .hero-title{font-size:2.2rem}
-  .section{padding:50px 16px}
-  .controls-bar{padding:12px 16px}
-  .filter-btn{padding:6px 14px;font-size:11px}
-}
-</style>
+        .btn-hover-effect {
+            transition: all 0.3s ease;
+        }
+        .btn-hover-effect:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
 </head>
-<body>
+<body class="text-slate-800 antialiased leading-relaxed selection:bg-brand-500 selection:text-white">
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <div class="nav-logo-icon"><i data-lucide="wand-2" style="width:20px;height:20px;color:#fff"></i></div>
-      <div class="nav-logo-text">SPELL<span>TECH</span></div>
-    </a>
-    <div class="nav-links">
-      <a href="#comparativo" class="active">Comparativo</a>
-      <a href="#destaques">Destaques</a>
-      <a href="#aviso">Aviso</a>
-    </div>
-    <div class="nav-date">📅 23/06/2026</div>
-    <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('show')">
-      <i data-lucide="menu" style="width:22px;height:22px"></i>
-    </button>
-  </div>
-</nav>
+    <!-- Header / Hero Section -->
+    <header class="bg-gradient-to-br from-brand-900 to-brand-700 text-white py-20 px-6 sm:px-12 lg:px-24 shadow-xl relative overflow-hidden">
+        <!-- Elemento de design ao fundo -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-white opacity-5 blur-3xl"></div>
+        
+        <div class="max-w-5xl mx-auto relative z-10">
+            <span class="uppercase tracking-widest text-brand-100 font-semibold text-sm mb-4 block">Guia Definitivo</span>
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+                # Plano de Ação Estratégico: <br/> Transição Tributária e Formalização
+            </h1>
+            
+            <br>
+            
+            <p class="text-lg sm:text-xl text-brand-50 font-light mb-6 max-w-4xl">
+                Para estruturar a atuação clínica da Priscila de forma inteligente, garantir a conformidade com a Reforma Tributária de 2026/2027 e evitar a armadilha do estrangulamento financeiro pela carga do Imposto de Renda e INSS na Pessoa Física, elaborei um passo a passo ultra detalhado.
+            </p>
+            
+            <br>
+            
+            <p class="text-lg sm:text-xl text-brand-50 font-light mb-8 max-w-4xl">
+                Este guia traduz as exigências do "Ano de Testes" (2026) e desenha a rota exata para a migração para Pessoa Jurídica (Microempresa), garantindo segurança jurídica e a maior rentabilidade possível dentro da lei.
+            </p>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-orb hero-orb-3"></div>
-  <div class="hero-sparkles" id="sparkles"></div>
-  <div class="hero-content">
-    <div class="hero-badge fade-up"><i data-lucide="sparkles" style="width:14px;height:14px"></i> Relatório Exclusivo ·-Jun 2026</div>
-    <h1 class="hero-title fade-up delay-1">Guia Definitivo<br>Xiaomi vs Realme</h1>
-    <p class="hero-subtitle fade-up delay-2">Análise ultra detalhada de 21 modelos lacrados com especificações projetadas, preços reais e a descoberta dos melhores negócios.</p>
-    <div class="hero-stats fade-up delay-3">
-      <div class="hero-stat">
-        <div class="hero-stat-num">21</div>
-        <div class="hero-stat-label">Modelos</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">2</div>
-        <div class="hero-stat-label">Marcas</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">R$725</div>
-        <div class="hero-stat-label">Menor Preço</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">R$3.225</div>
-        <div class="hero-stat-label">Maior Preço</div>
-      </div>
-    </div>
-  </div>
-  <a href="#comparativo" class="hero-scroll">
-    <i data-lucide="chevron-down" style="width:18px;height:18px"></i>
-    Explorar
-  </a>
-</section>
+            <br>
 
-<!-- CONTROLS -->
-<div class="controls-bar" id="comparativo">
-  <div class="controls-inner">
-    <div class="filter-group">
-      <span class="filter-label">Marca:</span>
-      <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">Todos</button>
-      <button class="filter-btn" data-filter="poco" onclick="setFilter('poco',this)">POCO</button>
-      <button class="filter-btn" data-filter="redmi" onclick="setFilter('redmi',this)">Redmi</button>
-      <button class="filter-btn" data-filter="realme" onclick="setFilter('realme',this)">Realme</button>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Faixa:</span>
-      <button class="filter-btn active" data-range="all" onclick="setRange('all',this)">Todas</button>
-      <button class="filter-btn" data-range="entry" onclick="setRange('entry',this)">Até R$1.100</button>
-      <button class="filter-btn" data-range="mid" onclick="setRange('mid',this)">R$1.100–R$2.000</button>
-      <button class="filter-btn" data-range="high" onclick="setRange('high',this)">Acima R$2.000</button>
-    </div>
-    <select class="sort-select" id="sortSelect" onchange="sortPhones(this.value)">
-      <option value="price-asc">Preço ↑</option>
-      <option value="price-desc">Preço ↓</option>
-      <option value="cpg-asc">Custo/GB ↑</option>
-      <option value="cpg-desc">Custo/GB ↓</option>
-      <option value="name">Nome A-Z</option>
-    </select>
-    <div class="view-toggle">
-      <button class="view-btn active" id="viewCards" onclick="setView('cards')"><i data-lucide="layout-grid" style="width:16px;height:16px"></i></button>
-      <button class="view-btn" id="viewTable" onclick="setView('table')"><i data-lucide="table" style="width:16px;height:16px"></i></button>
-    </div>
-  </div>
-</div>
-
-<!-- MAIN CONTENT -->
-<section class="section" style="padding-top:20px">
-  <div class="section-inner">
-    <div class="result-bar">
-      <div class="result-count">Exibindo <strong id="countNum">21</strong> de 21 modelos</div>
-    </div>
-
-    <!-- CARDS -->
-    <div class="cards-grid" id="cardsGrid"></div>
-
-    <!-- TABLE -->
-    <div class="table-wrap" id="tableWrap">
-      <table class="data-table" id="dataTable">
-        <thead>
-          <tr>
-            <th>Modelo</th>
-            <th>Arm. / RAM</th>
-            <th>Processador*</th>
-            <th>Tela*</th>
-            <th>Câmera*</th>
-            <th>Bateria*</th>
-            <th>Rede</th>
-            <th>Preço</th>
-            <th>R$/GB</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody"></tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- HIGHLIGHTS -->
-<section class="section" id="destaques" style="background:var(--bg-primary)">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-tag">Análise Spelltech</div>
-      <h2 class="section-title">Destaques da Análise</h2>
-      <p class="section-desc">Nossa equipe identificou os melhores e piores negócios desta lista.</p>
-    </div>
-    <div class="highlights-grid">
-      <div class="highlight-card hc-green fade-up">
-        <div class="hc-icon"><i data-lucide="trophy" style="width:24px;height:24px"></i></div>
-        <div class="hc-title">Melhor Custo-Benefício</div>
-        <div class="hc-desc">Pula da categoria "Basicão" direto para o intermediário verdadeiro: tela AMOLED, câmera de 108MP e processador robusto por apenas R$1.300.</div>
-        <div class="hc-phone"><i data-lucide="smartphone" style="width:13px;height:13px"></i> Redmi Note 15 256GB — R$1.300</div>
-      </div>
-      <div class="highlight-card hc-gold fade-up delay-1">
-        <div class="hc-icon"><i data-lucide="hard-drive" style="width:24px;height:24px"></i></div>
-        <div class="hc-title">Rei do Armazenamento</div>
-        <div class="hc-desc">Meio terabyte com câmera de 200MP, 5G e custo por GB de apenas R$3,87 — o mais barato de toda a lista.</div>
-        <div class="hc-phone"><i data-lucide="smartphone" style="width:13px;height:13px"></i> Redmi Note 15 PRO 512GB 5G — R$1.985</div>
-      </div>
-      <div class="highlight-card hc-red fade-up delay-2">
-        <div class="hc-icon"><i data-lucide="alert-triangle" style="width:24px;height:24px"></i></div>
-        <div class="hc-title">Evite a Todo Custo</div>
-        <div class="hc-desc">Custo por GB de R$11,32 é um absurdo. Por R$55 a mais você leva o de 128GB. Nunca compre smartphones com menos de 128GB hoje.</div>
-        <div class="hc-phone"><i data-lucide="smartphone" style="width:13px;height:13px"></i> Realme Note 60X 64GB — R$725</div>
-      </div>
-      <div class="highlight-card hc-red fade-up delay-3">
-        <div class="hc-icon"><i data-lucide="x-circle" style="width:24px;height:24px"></i></div>
-        <div class="hc-title">Preço Injustificável</div>
-        <div class="hc-desc">Custa o mesmo que um Redmi Note 15 que tem tela AMOLED, câmera de 108MP e processador muito superior. Não faz sentido.</div>
-        <div class="hc-phone"><i data-lucide="smartphone" style="width:13px;height:13px"></i> Realme C100x 128GB — R$1.190</div>
-      </div>
-      <div class="highlight-card hc-purple fade-up delay-4">
-        <div class="hc-icon"><i data-lucide="zap" style="width:24px;height:24px"></i></div>
-        <div class="hc-title">Topo de Linha Absoluto</div>
-        <div class="hc-desc">Único com câmera periscópica, tela 2K, carregamento de 120W e processador Dimensity 9300+. Flagship Killer por excelência.</div>
-        <div class="hc-phone"><i data-lucide="smartphone" style="width:13px;height:13px"></i> POCO X8 PRO MAX 512GB — R$3.225</div>
-      </div>
-      <div class="highlight-card hc-purple fade-up delay-5">
-        <div class="hc-icon"><i data-lucide="battery-charging" style="width:24px;height:24px"></i></div>
-        <div class="hc-title">Maior Bateria</div>
-        <div class="hc-desc">6000mAh com carregamento de 80W e Snapdragon 7+ Gen 3. A escolha perfeita para quem vive longe da tomada.</div>
-        <div class="hc-phone"><i data-lucide="smartphone" style="width:13px;height:13px"></i> Realme P4 Power 256GB — R$2.300</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DISCLAIMER -->
-<section class="section" id="aviso">
-  <div class="section-inner">
-    <div class="disclaimer fade-up">
-      <div class="disclaimer-icon"><i data-lucide="info" style="width:22px;height:22px"></i></div>
-      <div class="disclaimer-text">
-        <strong>⚠️ Aviso Importante:</strong> A data da lista é <strong>23/06/2026</strong>. Os campos de Processador, Tela, Câmera e Bateria marcados com asterisco (*) contêm <strong>especificações técnicas estimadas/projetadas</strong>, baseadas na evolução de gerações anteriores e vazamentos do setor. Os dados de <strong>Preço, Armazenamento, RAM e Custo por GB são 100% reais</strong> conforme a lista fornecida. Consulte fontes oficiais no momento da compra.
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <div class="nav-logo-icon" style="width:32px;height:32px"><i data-lucide="wand-2" style="width:16px;height:16px;color:#fff"></i></div>
-      <div class="nav-logo-text" style="font-size:16px">SPELL<span>TECH</span></div>
-    </div>
-    <div class="footer-text">
-      Relatório comparativo gerado para fins de análise.<br>
-      SPELLTECH · Assistência Técnica Especializada<br>
-      © 2026 — Todos os direitos reservados
-    </div>
-  </div>
-</footer>
-
-<!-- BACK TO TOP -->
-<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <i data-lucide="arrow-up" style="width:20px;height:20px"></i>
-</button>
-
-<script>
-// === DATA ===
-const phones = [
-  {name:"Realme Note 60X",storage:"64GB / 4GB",storageNum:64,price:725,brand:"realme",range:"entry",proc:"Unisoc T612",screen:"6.74\" IPS HD+ 90Hz",cam:"32MP + IA",bat:"5000mAh / 10W",conn:"4G",profile:"Básico sob medida",warn:true},
-  {name:"Realme Note 60X",storage:"128GB / 4GB",storageNum:128,price:780,brand:"realme",range:"entry",proc:"Unisoc T612",screen:"6.74\" IPS HD+ 90Hz",cam:"32MP + IA",bat:"5000mAh / 10W",conn:"4G",profile:"Básico sob medida"},
-  {name:"Realme Smart 10",storage:"128GB / 4GB",storageNum:128,price:785,brand:"realme",range:"entry",proc:"Helio G85",screen:"6.7\" IPS HD+ 90Hz",cam:"50MP + 2MP",bat:"5000mAh / 18W",conn:"4G",profile:"Básico com bom processador"},
-  {name:"POCO C71",storage:"128GB / 4GB",storageNum:128,price:810,brand:"poco",range:"entry",proc:"Helio G36",screen:"6.71\" IPS HD+ 60Hz",cam:"50MP + IA",bat:"5000mAh / 18W",conn:"4G",profile:"Uso extremamente básico"},
-  {name:"Redmi 15C",storage:"128GB / 4GB",storageNum:128,price:840,brand:"redmi",range:"entry",proc:"Helio G81",screen:"6.88\" IPS HD+ 120Hz",cam:"50MP + IA",bat:"5160mAh / 18W",conn:"4G",profile:"Tela grande e bateria"},
-  {name:"Realme Note 60",storage:"128GB / 4GB",storageNum:128,price:845,brand:"realme",range:"entry",proc:"Snapdragon 4 Gen 2",screen:"6.67\" IPS FHD+ 120Hz",cam:"108MP + 2MP",bat:"5000mAh / 45W",conn:"4G",profile:"Melhor câmera barato",best:true},
-  {name:"POCO C85",storage:"128GB / 4GB",storageNum:128,price:875,brand:"poco",range:"entry",proc:"Helio G85",screen:"6.67\" IPS HD+ 90Hz",cam:"50MP + 2MP",bat:"5160mAh / 18W",conn:"4G",profile:"Intermediário fraco"},
-  {name:"Redmi 15C",storage:"256GB / 4GB",storageNum:256,price:1025,brand:"redmi",range:"entry",proc:"Helio G81",screen:"6.88\" IPS HD+ 120Hz",cam:"50MP + IA",bat:"5160mAh / 18W",conn:"4G",profile:"Armazenamento topo de linha"},
-  {name:"POCO C85",storage:"256GB / 4GB",storageNum:256,price:1030,brand:"poco",range:"entry",proc:"Helio G85",screen:"6.67\" IPS HD+ 90Hz",cam:"50MP + 2MP",bat:"5160mAh / 18W",conn:"4G",profile:"Excelente custo/GB"},
-  {name:"Realme C100x",storage:"128GB / 4GB",storageNum:128,price:1190,brand:"realme",range:"entry",proc:"Unisoc T612",screen:"6.7\" IPS HD+ 60Hz",cam:"50MP + IA",bat:"5000mAh / 10W",conn:"4G",profile:"Preço altíssimo",warn:true},
-  {name:"Redmi Note 15",storage:"256GB / 6GB",storageNum:256,price:1300,brand:"redmi",range:"mid",proc:"Snapdragon 4 Gen 3",screen:"6.67\" AMOLED FHD+ 120Hz",cam:"108MP + 8MP + 2MP",bat:"5110mAh / 33W",conn:"4G",profile:"Melhor custo-benefício",best:true},
-  {name:"Redmi Note 14 5G",storage:"256GB / 8GB",storageNum:256,price:1380,brand:"redmi",range:"mid",proc:"Snapdragon 4 Gen 2",screen:"6.67\" AMOLED FHD+ 120Hz",cam:"108MP + 2MP",bat:"5110mAh / 33W",conn:"5G",profile:"Entrada no 5G sólida"},
-  {name:"Realme C85",storage:"256GB / 8GB",storageNum:256,price:1510,brand:"realme",range:"mid",proc:"Dimensity 6300",screen:"6.67\" IPS FHD+ 120Hz",cam:"50MP + IA",bat:"5100mAh / 45W",conn:"5G",profile:"Focado em bateria"},
-  {name:"Redmi Note 15 PRO",storage:"256GB / 8GB",storageNum:256,price:1630,brand:"redmi",range:"mid",proc:"Helio G99 Ultra",screen:"6.67\" AMOLED 1.5K 120Hz",cam:"200MP + 8MP + 2MP",bat:"5110mAh / 67W",conn:"4G",profile:"Câmera 200MP premium"},
-  {name:"Redmi Note 15 PRO 5G",storage:"256GB / 8GB",storageNum:256,price:1855,brand:"redmi",range:"mid",proc:"Snapdragon 7s Gen 3",screen:"6.67\" AMOLED 1.5K 120Hz",cam:"200MP + 8MP + 2MP",bat:"5110mAh / 67W",conn:"5G",profile:"5G forte"},
-  {name:"Redmi Note 15 PRO 5G",storage:"512GB / 8GB",storageNum:512,price:1985,brand:"redmi",range:"mid",proc:"Snapdragon 7s Gen 3",screen:"6.67\" AMOLED 1.5K 120Hz",cam:"200MP + 8MP + 2MP",bat:"5110mAh / 67W",conn:"5G",profile:"Campeão em Custo/GB",best:true},
-  {name:"POCO X8 PRO",storage:"256GB / 8GB",storageNum:256,price:2175,brand:"poco",range:"high",proc:"Dimensity 8400",screen:"6.67\" AMOLED 1.5K 120Hz",cam:"50MP (OIS) + 8MP",bat:"5500mAh / 67W",conn:"5G",profile:"Gamer Casual"},
-  {name:"Realme P4 Power",storage:"256GB / 8GB",storageNum:256,price:2300,brand:"realme",range:"high",proc:"Snapdragon 7+ Gen 3",screen:"6.78\" AMOLED 1.5K 120Hz",cam:"50MP (OIS) + 8MP",bat:"6000mAh / 80W",conn:"5G",profile:"Maior Bateria 6000mAh",best:true},
-  {name:"POCO X7 PRO",storage:"512GB / 8GB",storageNum:512,price:2450,brand:"poco",range:"high",proc:"Dimensity 8300-Ultra",screen:"6.67\" AMOLED 1.5K 120Hz",cam:"64MP (OIS) + 8MP",bat:"5000mAh / 67W",conn:"5G",profile:"Armazenamento rápido"},
-  {name:"POCO X8 PRO",storage:"512GB / 12GB",storageNum:512,price:2530,brand:"poco",range:"high",proc:"Dimensity 8400",screen:"6.67\" AMOLED 1.5K 120Hz",cam:"50MP (OIS) + 8MP",bat:"5500mAh / 67W",conn:"5G",profile:"Multitarefa pesada"},
-  {name:"POCO X8 PRO MAX",storage:"512GB / 12GB",storageNum:512,price:3225,brand:"poco",range:"high",proc:"Dimensity 9300+",screen:"6.78\" AMOLED 2K 120Hz",cam:"50MP Periscópio+OIS",bat:"6000mAh / 120W",conn:"5G",profile:"Topo de Linha Absoluto",best:true}
-];
-
-phones.forEach(p => { p.cpg = parseFloat((p.price / p.storageNum).toFixed(2)); });
-
-let currentFilter = 'all';
-let currentRange = 'all';
-let currentSort = 'price-asc';
-let currentView = 'cards';
-
-function getBrandClass(b){return b==='poco'?'brand-poco':b==='redmi'?'brand-redmi':'brand-realme'}
-function getBrandLabel(b){return b==='poco'?'POCO':b==='redmi'?'Redmi':'Realme'}
-function getCpgClass(c){return c<=4.5?'cpg-good':c<=7?'cpg-ok':'cpg-bad'}
-function getConnClass(c){return c==='5G'?'conn-5g':'conn-4g'}
-
-function renderCards(){
-  const grid = document.getElementById('cardsGrid');
-  const sorted = getFilteredSorted();
-  grid.innerHTML = sorted.map((p,i) => `
-    <div class="phone-card fade-up" style="animation-delay:${Math.min(i*0.05,0.5)}s" data-brand="${p.brand}" data-range="${p.range}" onclick="this.classList.toggle('expanded')">
-      <div class="card-top">
-        <span class="card-brand ${getBrandClass(p.brand)}">${getBrandLabel(p.brand)}</span>
-        <div class="card-badges">
-          ${p.conn==='5G'?'<span class="card-badge badge-5g">5G</span>':''}
-          ${p.best?'<span class="card-badge badge-best">★ Destaque</span>':''}
-          ${p.warn?'<span class="card-badge badge-warn">⚠ Cuidado</span>':''}
+            <hr class="border-brand-500/50 w-24 border-2 rounded-full mt-4">
         </div>
-      </div>
-      <div class="card-body">
-        <div class="card-name">${p.name}</div>
-        <div class="card-storage">${p.storage}</div>
-        <div class="card-specs">
-          <div class="spec-item"><span class="spec-label">Processador*</span><span class="spec-value">${p.proc}</span></div>
-          <div class="spec-item"><span class="spec-label">Tela*</span><span class="spec-value">${p.screen}</span></div>
-          <div class="spec-item"><span class="spec-label">Câmera*</span><span class="spec-value">${p.cam}</span></div>
-          <div class="spec-item"><span class="spec-label">Bateria*</span><span class="spec-value">${p.bat}</span></div>
-        </div>
-      </div>
-      <div class="card-footer">
-        <div class="card-price"><small>R$</small>${p.price.toLocaleString('pt-BR')}</div>
-        <span class="card-cpg ${getCpgClass(p.cpg)}">R$${p.cpg}/GB</span>
-      </div>
-      <div class="card-expand">
-        <div class="expand-content">
-          <div class="spec-item"><span class="spec-label">Perfil</span><span class="spec-value">${p.profile}</span></div>
-          <div class="spec-item"><span class="spec-label">Conexão</span><span class="spec-value">${p.conn}</span></div>
-          <div class="spec-item"><span class="spec-label">Armazenamento</span><span class="spec-value">${p.storageNum}GB</span></div>
-          <div class="spec-item"><span class="spec-label">Custo/GB</span><span class="spec-value" style="color:${p.cpg<=4.5?'var(--green)':p.cpg<=7?'var(--gold)':'var(--red)'}">R$ ${p.cpg}</span></div>
-        </div>
-      </div>
-      <div class="expand-hint"><i data-lucide="chevron-down" style="width:14px;height:14px"></i> Clique para detalhes</div>
-    </div>
-  `).join('');
-  document.getElementById('countNum').textContent = sorted.length;
-  lucide.createIcons();
-}
+    </header>
 
-function renderTable(){
-  const tbody = document.getElementById('tableBody');
-  const sorted = getFilteredSorted();
-  tbody.innerHTML = sorted.map(p => `
-    <tr data-brand="${p.brand}" data-range="${p.range}">
-      <td class="table-model">${p.name} ${p.best?'<span class="card-badge badge-best" style="margin-left:4px">★</span>':''} ${p.warn?'<span class="card-badge badge-warn" style="margin-left:4px">⚠</span>':''}</td>
-      <td>${p.storage}</td>
-      <td>${p.proc}</td>
-      <td>${p.screen}</td>
-      <td>${p.cam}</td>
-      <td>${p.bat}</td>
-      <td><span class="table-conn ${getConnClass(p.conn)}">${p.conn}</span></td>
-      <td class="table-price">R$${p.price.toLocaleString('pt-BR')}</td>
-      <td class="table-cpg" style="color:${p.cpg<=4.5?'var(--green)':p.cpg<=7?'var(--gold)':'var(--red)'}">R$${p.cpg}</td>
-    </tr>
-  `).join('');
-  document.getElementById('countNum').textContent = sorted.length;
-}
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 sm:px-12 py-16 space-y-24">
 
-function getFilteredSorted(){
-  let arr = [...phones];
-  if(currentFilter!=='all') arr = arr.filter(p=>p.brand===currentFilter);
-  if(currentRange!=='all') arr = arr.filter(p=>p.range===currentRange);
-  switch(currentSort){
-    case 'price-asc': arr.sort((a,b)=>a.price-b.price); break;
-    case 'price-desc': arr.sort((a,b)=>b.price-a.price); break;
-    case 'cpg-asc': arr.sort((a,b)=>a.cpg-b.cpg); break;
-    case 'cpg-desc': arr.sort((a,b)=>b.cpg-a.cpg); break;
-    case 'name': arr.sort((a,b)=>a.name.localeCompare(b.name)); break;
-  }
-  return arr;
-}
+        <br>
 
-function setFilter(f,btn){
-  currentFilter = f;
-  document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  render();
-}
-function setRange(r,btn){
-  currentRange = r;
-  document.querySelectorAll('[data-range]').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  render();
-}
-function sortPhones(v){ currentSort=v; render(); }
-function setView(v){
-  currentView = v;
-  document.getElementById('viewCards').classList.toggle('active',v==='cards');
-  document.getElementById('viewTable').classList.toggle('active',v==='table');
-  document.getElementById('cardsGrid').style.display = v==='cards'?'grid':'none';
-  document.getElementById('tableWrap').classList.toggle('active',v==='table');
-  render();
-}
-function render(){
-  if(currentView==='cards') renderCards(); else renderTable();
-  
-  const controls = document.getElementById('comparativo');
-  if(controls && window.scrollY > controls.offsetTop) {
-    window.scrollTo({ top: controls.offsetTop - 70, behavior: 'smooth' });
-  }
-}
+        <!-- FASE 1 -->
+        <section class="scroll-mt-10">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 text-2xl shadow-sm">
+                    📍
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800 tracking-tight">## 📍 Fase 1: Gestão Imediata na Pessoa Física (Curto Prazo - 2026)</h2>
+            </div>
+            
+            <p class="text-lg text-slate-600 mb-10 pl-16">
+                Enquanto a transição para Pessoa Jurídica (CNPJ) não é concluída, a atuação clínica continua ocorrendo pelo CPF. O foco aqui é evitar divergências na malha fina da Receita Federal cruzando os dados da clínica, dos pacientes particulares e do sistema "Receita Saúde".
+            </p>
 
-// === SPARKLES ===
-function createSparkles(){
-  const c = document.getElementById('sparkles');
-  for(let i=0;i<30;i++){
-    const s = document.createElement('div');
-    s.className='sparkle';
-    s.style.left = Math.random()*100+'%';
-    s.style.top = Math.random()*100+'%';
-    s.style.animationDelay = Math.random()*5+'s';
-    s.style.animationDuration = (2+Math.random()*4)+'s';
-    s.style.width = s.style.height = (2+Math.random()*4)+'px';
-    c.appendChild(s);
-  }
-}
+            <br>
 
-// === SCROLL EFFECTS ===
-window.addEventListener('scroll',()=>{
-  const nav = document.getElementById('nav');
-  const btn = document.getElementById('backTop');
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-  btn.classList.toggle('visible', window.scrollY > 600);
-});
+            <div class="space-y-10 pl-0 sm:pl-16">
+                
+                <!-- Item 1.1 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 1. Emissão da NFS-e de Padrão Nacional</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6">Como o CNPJ Técnico foi adiado para 2027, a emissão de notas deve continuar ocorrendo pelo CPF. É fundamental padronizar isso.</p>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-check-circle text-brand-500 mt-1"></i>
+                            <div><strong>* Ação:</strong> Acessar o portal nacional de emissão de notas e cadastrar o CPF para emissão das notas referentes aos repasses da clínica (R$ 2.000 a R$ 2.300) e aos pacientes particulares/sublocação (R$ 1.300).</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-clock text-brand-500 mt-1"></i>
+                            <div><strong>* Atenção ao Regime de Competência:</strong> A nota fiscal deve ser emitida no mês em que a sessão de terapia ocorreu, independentemente de o paciente ter pago adiantado ou parcelado.</div>
+                        </li>
+                        <li class="flex gap-3 items-center pt-4">
+                            <strong>* Link Oficial:</strong> 
+                            <a href="https://www.nfse.gov.br/EmissorNacional" target="_blank" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 text-white rounded-lg font-medium btn-hover-effect">
+                                <i class="fa-solid fa-external-link-alt"></i> Portal Nacional da NFS-e
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-// Intersection Observer for fade-up
-const obs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.style.animationPlayState='running';
-      obs.unobserve(e.target);
-    }
-  });
-},{threshold:0.1});
+                <br>
 
-function observeAnimations(){
-  document.querySelectorAll('.fade-up').forEach(el=>{
-    el.style.animationPlayState='paused';
-    obs.observe(el);
-  });
-}
+                <!-- Item 1.2 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 2. Alimentação Rigorosa do Carnê-Leão e Receita Saúde</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6">Pacientes que solicitam recibos ou notas para dedução no Imposto de Renda deles informam esses pagamentos à Receita. Se os dados não baterem, o CPF cai na malha fina.</p>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-check-circle text-brand-500 mt-1"></i>
+                            <div><strong>* Ação:</strong> Registrar todos os recebimentos mensais no Carnê-Leão Web.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-exclamation-circle text-brand-500 mt-1"></i>
+                            <div><strong>* Atenção ao Regime de Caixa:</strong> No Carnê-Leão, o registro é feito pela data do <em>pagamento real</em>. Se um paciente fechou um "Pacote de Sessões" e pagou R$ 1.000 de uma vez para usar em dois meses, o valor total entra no Carnê-Leão no mês do pagamento, mas as Notas Fiscais (NFS-e) serão fracionadas mês a mês conforme as sessões ocorrem.</div>
+                        </li>
+                        <li class="flex gap-3 items-center pt-4">
+                            <strong>* Link Oficial:</strong> 
+                            <a href="https://cav.receita.fazenda.gov.br/" target="_blank" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 text-white rounded-lg font-medium btn-hover-effect">
+                                <i class="fa-solid fa-external-link-alt"></i> Portal e-CAC - Receita Federal
+                            </a>
+                            <span class="text-sm text-slate-500 ml-2">(Acesso via conta Gov.br nível Prata ou Ouro).</span>
+                        </li>
+                    </ul>
+                </div>
 
-// === INIT ===
-document.addEventListener('DOMContentLoaded',()=>{
-  createSparkles();
-  render();
-  lucide.createIcons();
-  setTimeout(observeAnimations,100);
-});
-</script>
+                <br>
+
+                <!-- Item 1.3 ALERTA -->
+                <div class="bg-red-50 rounded-2xl p-8 border-l-4 border-red-500 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-red-500">
+                        <i class="fa-solid fa-triangle-exclamation text-8xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-red-800 mb-4 flex items-center gap-2 relative z-10">
+                        <span>### 🚨 3. A Armadilha do Nanoempreendedor (Obrigatório Evitar)</span>
+                    </h3>
+                    <p class="text-red-700 mb-6 relative z-10">O faturamento atual de aproximadamente R$ 43.200 ao ano se encaixa no teto do Nanoempreendedor (ou ficará perfeitamente ajustado se o teto subir para R$ 55.000). Isso isenta do IBS e da CBS. <strong>Porém, é uma armadilha financeira para a psicologia.</strong></p>
+                    
+                    <ul class="space-y-4 text-red-800 relative z-10">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-ban text-red-600 mt-1"></i>
+                            <div><strong>* Justificativa:</strong> A isenção abrange apenas os impostos de consumo (IBS/CBS). Atuando como Pessoa Física (CPF), a carga de <strong>Imposto de Renda (IRPF) pode chegar a 27,5%</strong> sobre o faturamento, somada à alíquota de <strong>20% de INSS</strong> (como contribuinte individual). O ganho da isenção é aniquilado por esses impostos diretos altíssimos.</div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <br>
+        <hr class="border-slate-200">
+        <br>
+
+        <!-- FASE 2 -->
+        <section class="scroll-mt-10">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 text-2xl shadow-sm">
+                    📍
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800 tracking-tight">## 📍 Fase 2: O Caminho da Formalização (Abertura de Microempresa - ME)</h2>
+            </div>
+            
+            <p class="text-lg text-slate-600 mb-10 pl-16">
+                A solução definitiva e mais econômica é abandonar o CPF/Carnê-Leão e abrir um CNPJ como Microempresa (ME) enquadrada no Simples Nacional. Profissões intelectuais e regulamentadas (Psicologia) são expressamente proibidas por lei de serem MEI (Microempreendedor Individual).
+            </p>
+
+            <br>
+
+            <div class="space-y-10 pl-0 sm:pl-16">
+                
+                <!-- Item 2.1 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 1. Contratação de Contabilidade Especializada em Saúde</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6">Não é recomendado fazer este processo sozinho. Clínicas e consultórios possuem regras específicas de vigilância sanitária e conselhos de classe (CRP).</p>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-check-circle text-brand-500 mt-1"></i>
+                            <div><strong>* Ação:</strong> Buscar um escritório de contabilidade digital ou físico que entenda de "Fator R" e clínicas de psicologia.</div>
+                        </li>
+                        <li class="flex gap-3 items-start pt-4">
+                            <strong>* Plataformas Digitais Sugeridas (Para pesquisa):</strong> 
+                            <div class="flex flex-wrap gap-3 ml-2 mt-1">
+                                <a href="https://www.contabilizei.com.br/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-medium transition-colors">
+                                    <i class="fa-solid fa-calculator text-brand-600"></i> Contabilizei
+                                </a>
+                                <span class="self-center">ou</span>
+                                <a href="https://www.agilize.com.br/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-medium transition-colors">
+                                    <i class="fa-solid fa-chart-line text-brand-600"></i> Agilize
+                                </a>
+                            </div>
+                        </li>
+                        <li class="text-sm text-slate-500 mt-2 ml-7">(Estas plataformas costumam abrir o CNPJ gratuitamente caso você feche o plano mensal).</li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <!-- Item 2.2 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 2. Definição da Natureza Jurídica e CNAE</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6">Durante o processo de abertura, a contabilidade precisará registrar a empresa com os códigos corretos para garantir as reduções de impostos da nova Reforma.</p>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-file-contract text-brand-500 mt-1"></i>
+                            <div><strong>* Natureza Jurídica:</strong> Solicitar a abertura de uma <strong>SLU (Sociedade Limitada Unipessoal)</strong>. Isso protege o patrimônio pessoal (os bens físicos e contas pessoais não se misturam com as dívidas da empresa) sem precisar de um sócio.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-briefcase text-brand-500 mt-1"></i>
+                            <div><strong>* CNAE (Classificação Nacional de Atividades Econômicas):</strong> O código principal obrigatório para a atuação será o <strong>8650-0/03 (Atividades de psicologia e psicanálise)</strong>.</div>
+                        </li>
+                        <li class="flex gap-3 items-center pt-4">
+                            <strong>* Link de Consulta:</strong> 
+                            <a href="https://www.gov.br/empresas-e-negocios/pt-br/redesim" target="_blank" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 text-white rounded-lg font-medium btn-hover-effect">
+                                <i class="fa-solid fa-external-link-alt"></i> Redesim - Gov.br
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <!-- Item 2.3 INSIGHT -->
+                <div class="bg-amber-50 rounded-2xl p-8 border-l-4 border-amber-500 shadow-sm">
+                    <h3 class="text-xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+                        <span>### 💡 3. Planejamento Tributário: O "Fator R" no Simples Nacional</span>
+                    </h3>
+                    <p class="text-amber-800 mb-6">Este é o pulo do gato financeiro. No Simples Nacional, a Psicologia pode ser tributada no Anexo III (alíquotas a partir de 6%) ou no Anexo V (alíquotas a partir de 15,5%).</p>
+                    
+                    <ul class="space-y-4 text-amber-900">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-scale-balanced text-amber-600 mt-1"></i>
+                            <div><strong>* A Regra:</strong> Para pagar apenas <strong>6%</strong> (Anexo III), a folha de pagamento da empresa (incluindo o próprio salário/pró-labore da titular) precisa ser igual ou superior a 28% do faturamento mensal.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-bullseye text-amber-600 mt-1"></i>
+                            <div><strong>* Ação Prática:</strong> A contabilidade deverá configurar um "Pró-labore" oficial (o salário oficial da dona da empresa) correspondente a 28% do faturamento (cerca de R$ 1.008 no cenário atual). Sobre esse valor será pago o INSS e o IR, mas o imposto sobre a nota da clínica despenca para 6%. É uma economia drástica em comparação aos até 27,5% da Pessoa Física.</div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <br>
+        <hr class="border-slate-200">
+        <br>
+
+        <!-- FASE 3 -->
+        <section class="scroll-mt-10">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 text-2xl shadow-sm">
+                    📍
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800 tracking-tight">## 📍 Fase 3: Operação Pós-Abertura e Benefícios da Reforma (2026/2027)</h2>
+            </div>
+            
+            <p class="text-lg text-slate-600 mb-10 pl-16">
+                Uma vez que o CNPJ esteja ativo, a dinâmica de trabalho com a clínica e com os pacientes mudará para melhor.
+            </p>
+
+            <br>
+
+            <div class="space-y-10 pl-0 sm:pl-16">
+                
+                <!-- Item 3.1 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 1. Abertura de Conta Bancária Pessoa Jurídica (PJ)</span>
+                    </h3>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-check-circle text-brand-500 mt-1"></i>
+                            <div><strong>* Ação:</strong> Abrir uma conta bancária atrelada exclusivamente ao novo CNPJ.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-lock text-brand-500 mt-1"></i>
+                            <div><strong>* Diretriz Rigorosa:</strong> A clínica e os pacientes online/sublocação deverão depositar os R$ 3.300 a R$ 3.600 mensais <strong>exclusivamente nesta conta PJ</strong>. Nunca misture o dinheiro da empresa com as despesas da casa.</div>
+                        </li>
+                        <li class="flex gap-3 items-start pt-4">
+                            <strong>* Bancos Digitais Sugeridos (Sem taxas):</strong> 
+                            <div class="flex flex-wrap gap-3 ml-2 mt-1">
+                                <a href="https://www.cora.com.br/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-medium transition-colors"><i class="fa-solid fa-building-columns text-brand-600"></i> Cora</a>
+                                <a href="https://nubank.com.br/pj/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-medium transition-colors"><i class="fa-solid fa-building-columns text-brand-600"></i> Nubank PJ</a>
+                                <span class="self-center">ou</span>
+                                <a href="https://bancointer.com.br/empresas/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-medium transition-colors"><i class="fa-solid fa-building-columns text-brand-600"></i> Inter Empresas</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <!-- Item 3.2 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 2. Emissão de Notas pelo CNPJ</span>
+                    </h3>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-file-invoice text-brand-500 mt-1"></i>
+                            <div><strong>* Ação:</strong> Passar a emitir a NFS-e para a clínica usando o CNPJ da SLU. A clínica fará o pagamento contra a apresentação desta nota. O mesmo vale para os pacientes particulares.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-scissors text-brand-500 mt-1"></i>
+                            <div><strong>* Dispensa do Carnê-Leão:</strong> Como Pessoa Jurídica, o Carnê-Leão e o "Receita Saúde" deixam de ser uma preocupação da Pessoa Física. A contabilidade cuidará da emissão da guia única do Simples Nacional (DAS).</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <!-- Item 3.3 INSIGHT -->
+                <div class="bg-brand-50 rounded-2xl p-8 border-l-4 border-brand-600 shadow-sm">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 💡 3. Aplicação da Redução da Reforma Tributária</span>
+                    </h3>
+                    <p class="text-brand-800 mb-6">O PLP 68/24 (Regulamentação da Reforma Tributária) trouxe uma vitória fundamental para a categoria.</p>
+                    
+                    <ul class="space-y-4 text-brand-900">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-gift text-brand-600 mt-1"></i>
+                            <div><strong>* O Benefício:</strong> Profissionais liberais de natureza científica e intelectual (o que engloba a psicologia) terão direito a uma <strong>redução de 30% nas alíquotas do IBS e da CBS</strong> sobre a prestação de serviços.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-comments text-brand-600 mt-1"></i>
+                            <div><strong>* Ação:</strong> Manter contato constante com o contador ao longo de 2026 para garantir que, quando o IBS e a CBS entrarem em vigor plenamente (substituindo o ISS e outros impostos), o sistema de emissão de notas da empresa já esteja configurado para aplicar esse redutor de 30% na carga tributária da clínica.</div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <br>
+        <br>
+
+        <!-- RESUMO / BLOCKQUOTE FINAL -->
+        <blockquote class="bg-gradient-to-r from-slate-800 to-slate-900 text-white rounded-3xl p-10 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-10 -mt-10 opacity-10">
+                <i class="fa-solid fa-quote-right text-9xl"></i>
+            </div>
+            <h3 class="text-2xl font-serif font-bold mb-4 flex items-center gap-3">
+                <i class="fa-solid fa-map-location-dot text-brand-400"></i> 
+                > Resumo Estratégico:
+            </h3>
+            <p class="text-lg font-light leading-relaxed text-slate-200">
+                Continuar como Pessoa Física é pagar caro pela "simplicidade". O plano de ação exige a contratação imediata de um contador, a abertura de uma SLU com CNAE de Psicologia, o enquadramento no Simples Nacional utilizando o Fator R (para reduzir a alíquota a 6%), e a centralização de todos os recebimentos em uma conta bancária PJ.
+            </p>
+        </blockquote>
+
+        <br>
+        <br>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <p>Desenvolvido de acordo com a Regulamentação Tributária Vigente (Base 2026/2027)</p>
+    </footer>
+
 </body>
 </html>
