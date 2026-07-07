@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Ação Estratégico: Transição Tributária</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome para Ícones -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Configuração de Cores Premium (Inspirado em paletas de clínicas/psicologia) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488', // Teal Principal
+                            700: '#0f766e',
+                            900: '#134e4a',
+                        },
+                        accent: {
+                            500: '#f59e0b', // Amber para alertas
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Suavização de rolagem e estilos base */
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8fafc; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .btn-hover-effect {
+            transition: all 0.3s ease;
+        }
+        .btn-hover-effect:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased leading-relaxed selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Hero Section -->
+    <header class="bg-gradient-to-br from-brand-900 to-brand-700 text-white py-20 px-6 sm:px-12 lg:px-24 shadow-xl relative overflow-hidden">
+        <!-- Elemento de design ao fundo -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-white opacity-5 blur-3xl"></div>
+        
+        <div class="max-w-5xl mx-auto relative z-10">
+            <span class="uppercase tracking-widest text-brand-100 font-semibold text-sm mb-4 block">Guia Definitivo</span>
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+                # Plano de Ação Estratégico: <br/> Transição Tributária e Formalização
+            </h1>
+            
+            <br>
+            
+            <p class="text-lg sm:text-xl text-brand-50 font-light mb-6 max-w-4xl">
+                Para estruturar a atuação clínica da Priscila de forma inteligente, garantir a conformidade com a Reforma Tributária de 2026/2027 e evitar a armadilha do estrangulamento financeiro pela carga do Imposto de Renda e INSS na Pessoa Física, elaborei um passo a passo ultra detalhado.
+            </p>
+            
+            <br>
+            
+            <p class="text-lg sm:text-xl text-brand-50 font-light mb-8 max-w-4xl">
+                Este guia traduz as exigências do "Ano de Testes" (2026) e desenha a rota exata para a migração para Pessoa Jurídica (Microempresa), garantindo segurança jurídica e a maior rentabilidade possível dentro da lei.
+            </p>
+
+            <br>
+
+            <hr class="border-brand-500/50 w-24 border-2 rounded-full mt-4">
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 sm:px-12 py-16 space-y-24">
+
+        <br>
+
+        <!-- FASE 1 -->
+        <section class="scroll-mt-10">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 text-2xl shadow-sm">
+                    📍
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800 tracking-tight">## 📍 Fase 1: Gestão Imediata na Pessoa Física (Curto Prazo - 2026)</h2>
+            </div>
+            
+            <p class="text-lg text-slate-600 mb-10 pl-16">
+                Enquanto a transição para Pessoa Jurídica (CNPJ) não é concluída, a atuação clínica continua ocorrendo pelo CPF. O foco aqui é evitar divergências na malha fina da Receita Federal cruzando os dados da clínica, dos pacientes particulares e do sistema "Receita Saúde".
+            </p>
+
+            <br>
+
+            <div class="space-y-10 pl-0 sm:pl-16">
+                
+                <!-- Item 1.1 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 1. Emissão da NFS-e de Padrão Nacional</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6">Como o CNPJ Técnico foi adiado para 2027, a emissão de notas deve continuar ocorrendo pelo CPF. É fundamental padronizar isso.</p>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-check-circle text-brand-500 mt-1"></i>
+                            <div><strong>* Ação:</strong> Acessar o portal nacional de emissão de notas e cadastrar o CPF para emissão das notas referentes aos repasses da clínica (R$ 2.000 a R$ 2.300) e aos pacientes particulares/sublocação (R$ 1.300).</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-clock text-brand-500 mt-1"></i>
+                            <div><strong>* Atenção ao Regime de Competência:</strong> A nota fiscal deve ser emitida no mês em que a sessão de terapia ocorreu, independentemente de o paciente ter pago adiantado ou parcelado.</div>
+                        </li>
+                        <li class="flex gap-3 items-center pt-4">
+                            <strong>* Link Oficial:</strong> 
+                            <a href="https://www.nfse.gov.br/EmissorNacional" target="_blank" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 text-white rounded-lg font-medium btn-hover-effect">
+                                <i class="fa-solid fa-external-link-alt"></i> Portal Nacional da NFS-e
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <!-- Item 1.2 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 2. Alimentação Rigorosa do Carnê-Leão e Receita Saúde</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6">Pacientes que solicitam recibos ou notas para dedução no Imposto de Renda deles informam esses pagamentos à Receita. Se os dados não baterem, o CPF cai na malha fina.</p>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-check-circle text-brand-500 mt-1"></i>
+                            <div><strong>* Ação:</strong> Registrar todos os recebimentos mensais no Carnê-Leão Web.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-exclamation-circle text-brand-500 mt-1"></i>
+                            <div><strong>* Atenção ao Regime de Caixa:</strong> No Carnê-Leão, o registro é feito pela data do <em>pagamento real</em>. Se um paciente fechou um "Pacote de Sessões" e pagou R$ 1.000 de uma vez para usar em dois meses, o valor total entra no Carnê-Leão no mês do pagamento, mas as Notas Fiscais (NFS-e) serão fracionadas mês a mês conforme as sessões ocorrem.</div>
+                        </li>
+                        <li class="flex gap-3 items-center pt-4">
+                            <strong>* Link Oficial:</strong> 
+                            <a href="https://cav.receita.fazenda.gov.br/" target="_blank" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 text-white rounded-lg font-medium btn-hover-effect">
+                                <i class="fa-solid fa-external-link-alt"></i> Portal e-CAC - Receita Federal
+                            </a>
+                            <span class="text-sm text-slate-500 ml-2">(Acesso via conta Gov.br nível Prata ou Ouro).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <!-- Item 1.3 ALERTA -->
+                <div class="bg-red-50 rounded-2xl p-8 border-l-4 border-red-500 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-red-500">
+                        <i class="fa-solid fa-triangle-exclamation text-8xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-red-800 mb-4 flex items-center gap-2 relative z-10">
+                        <span>### 🚨 3. A Armadilha do Nanoempreendedor (Obrigatório Evitar)</span>
+                    </h3>
+                    <p class="text-red-700 mb-6 relative z-10">O faturamento atual de aproximadamente R$ 43.200 ao ano se encaixa no teto do Nanoempreendedor (ou ficará perfeitamente ajustado se o teto subir para R$ 55.000). Isso isenta do IBS e da CBS. <strong>Porém, é uma armadilha financeira para a psicologia.</strong></p>
+                    
+                    <ul class="space-y-4 text-red-800 relative z-10">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-ban text-red-600 mt-1"></i>
+                            <div><strong>* Justificativa:</strong> A isenção abrange apenas os impostos de consumo (IBS/CBS). Atuando como Pessoa Física (CPF), a carga de <strong>Imposto de Renda (IRPF) pode chegar a 27,5%</strong> sobre o faturamento, somada à alíquota de <strong>20% de INSS</strong> (como contribuinte individual). O ganho da isenção é aniquilado por esses impostos diretos altíssimos.</div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <br>
+        <hr class="border-slate-200">
+        <br>
+
+        <!-- FASE 2 -->
+        <section class="scroll-mt-10">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 text-2xl shadow-sm">
+                    📍
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800 tracking-tight">## 📍 Fase 2: O Caminho da Formalização (Abertura de Microempresa - ME)</h2>
+            </div>
+            
+            <p class="text-lg text-slate-600 mb-10 pl-16">
+                A solução definitiva e mais econômica é abandonar o CPF/Carnê-Leão e abrir um CNPJ como Microempresa (ME) enquadrada no Simples Nacional. Profissões intelectuais e regulamentadas (Psicologia) são expressamente proibidas por lei de serem MEI (Microempreendedor Individual).
+            </p>
+
+            <br>
+
+            <div class="space-y-10 pl-0 sm:pl-16">
+                
+                <!-- Item 2.1 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 1. Contratação de Contabilidade Especializada em Saúde</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6">Não é recomendado fazer este processo sozinho. Clínicas e consultórios possuem regras específicas de vigilância sanitária e conselhos de classe (CRP).</p>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-check-circle text-brand-500 mt-1"></i>
+                            <div><strong>* Ação:</strong> Buscar um escritório de contabilidade digital ou físico que entenda de "Fator R" e clínicas de psicologia.</div>
+                        </li>
+                        <li class="flex gap-3 items-start pt-4">
+                            <strong>* Plataformas Digitais Sugeridas (Para pesquisa):</strong> 
+                            <div class="flex flex-wrap gap-3 ml-2 mt-1">
+                                <a href="https://www.contabilizei.com.br/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-medium transition-colors">
+                                    <i class="fa-solid fa-calculator text-brand-600"></i> Contabilizei
+                                </a>
+                                <span class="self-center">ou</span>
+                                <a href="https://www.agilize.com.br/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-medium transition-colors">
+                                    <i class="fa-solid fa-chart-line text-brand-600"></i> Agilize
+                                </a>
+                            </div>
+                        </li>
+                        <li class="text-sm text-slate-500 mt-2 ml-7">(Estas plataformas costumam abrir o CNPJ gratuitamente caso você feche o plano mensal).</li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <!-- Item 2.2 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 2. Definição da Natureza Jurídica e CNAE</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6">Durante o processo de abertura, a contabilidade precisará registrar a empresa com os códigos corretos para garantir as reduções de impostos da nova Reforma.</p>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-file-contract text-brand-500 mt-1"></i>
+                            <div><strong>* Natureza Jurídica:</strong> Solicitar a abertura de uma <strong>SLU (Sociedade Limitada Unipessoal)</strong>. Isso protege o patrimônio pessoal (os bens físicos e contas pessoais não se misturam com as dívidas da empresa) sem precisar de um sócio.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-briefcase text-brand-500 mt-1"></i>
+                            <div><strong>* CNAE (Classificação Nacional de Atividades Econômicas):</strong> O código principal obrigatório para a atuação será o <strong>8650-0/03 (Atividades de psicologia e psicanálise)</strong>.</div>
+                        </li>
+                        <li class="flex gap-3 items-center pt-4">
+                            <strong>* Link de Consulta:</strong> 
+                            <a href="https://www.gov.br/empresas-e-negocios/pt-br/redesim" target="_blank" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 text-white rounded-lg font-medium btn-hover-effect">
+                                <i class="fa-solid fa-external-link-alt"></i> Redesim - Gov.br
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <!-- Item 2.3 INSIGHT -->
+                <div class="bg-amber-50 rounded-2xl p-8 border-l-4 border-amber-500 shadow-sm">
+                    <h3 class="text-xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+                        <span>### 💡 3. Planejamento Tributário: O "Fator R" no Simples Nacional</span>
+                    </h3>
+                    <p class="text-amber-800 mb-6">Este é o pulo do gato financeiro. No Simples Nacional, a Psicologia pode ser tributada no Anexo III (alíquotas a partir de 6%) ou no Anexo V (alíquotas a partir de 15,5%).</p>
+                    
+                    <ul class="space-y-4 text-amber-900">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-scale-balanced text-amber-600 mt-1"></i>
+                            <div><strong>* A Regra:</strong> Para pagar apenas <strong>6%</strong> (Anexo III), a folha de pagamento da empresa (incluindo o próprio salário/pró-labore da titular) precisa ser igual ou superior a 28% do faturamento mensal.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-bullseye text-amber-600 mt-1"></i>
+                            <div><strong>* Ação Prática:</strong> A contabilidade deverá configurar um "Pró-labore" oficial (o salário oficial da dona da empresa) correspondente a 28% do faturamento (cerca de R$ 1.008 no cenário atual). Sobre esse valor será pago o INSS e o IR, mas o imposto sobre a nota da clínica despenca para 6%. É uma economia drástica em comparação aos até 27,5% da Pessoa Física.</div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <br>
+        <hr class="border-slate-200">
+        <br>
+
+        <!-- FASE 3 -->
+        <section class="scroll-mt-10">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 text-2xl shadow-sm">
+                    📍
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800 tracking-tight">## 📍 Fase 3: Operação Pós-Abertura e Benefícios da Reforma (2026/2027)</h2>
+            </div>
+            
+            <p class="text-lg text-slate-600 mb-10 pl-16">
+                Uma vez que o CNPJ esteja ativo, a dinâmica de trabalho com a clínica e com os pacientes mudará para melhor.
+            </p>
+
+            <br>
+
+            <div class="space-y-10 pl-0 sm:pl-16">
+                
+                <!-- Item 3.1 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 1. Abertura de Conta Bancária Pessoa Jurídica (PJ)</span>
+                    </h3>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-check-circle text-brand-500 mt-1"></i>
+                            <div><strong>* Ação:</strong> Abrir uma conta bancária atrelada exclusivamente ao novo CNPJ.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-lock text-brand-500 mt-1"></i>
+                            <div><strong>* Diretriz Rigorosa:</strong> A clínica e os pacientes online/sublocação deverão depositar os R$ 3.300 a R$ 3.600 mensais <strong>exclusivamente nesta conta PJ</strong>. Nunca misture o dinheiro da empresa com as despesas da casa.</div>
+                        </li>
+                        <li class="flex gap-3 items-start pt-4">
+                            <strong>* Bancos Digitais Sugeridos (Sem taxas):</strong> 
+                            <div class="flex flex-wrap gap-3 ml-2 mt-1">
+                                <a href="https://www.cora.com.br/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-medium transition-colors"><i class="fa-solid fa-building-columns text-brand-600"></i> Cora</a>
+                                <a href="https://nubank.com.br/pj/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-medium transition-colors"><i class="fa-solid fa-building-columns text-brand-600"></i> Nubank PJ</a>
+                                <span class="self-center">ou</span>
+                                <a href="https://bancointer.com.br/empresas/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-medium transition-colors"><i class="fa-solid fa-building-columns text-brand-600"></i> Inter Empresas</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <!-- Item 3.2 -->
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-brand-500">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 🛠️ 2. Emissão de Notas pelo CNPJ</span>
+                    </h3>
+                    
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-file-invoice text-brand-500 mt-1"></i>
+                            <div><strong>* Ação:</strong> Passar a emitir a NFS-e para a clínica usando o CNPJ da SLU. A clínica fará o pagamento contra a apresentação desta nota. O mesmo vale para os pacientes particulares.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-scissors text-brand-500 mt-1"></i>
+                            <div><strong>* Dispensa do Carnê-Leão:</strong> Como Pessoa Jurídica, o Carnê-Leão e o "Receita Saúde" deixam de ser uma preocupação da Pessoa Física. A contabilidade cuidará da emissão da guia única do Simples Nacional (DAS).</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <!-- Item 3.3 INSIGHT -->
+                <div class="bg-brand-50 rounded-2xl p-8 border-l-4 border-brand-600 shadow-sm">
+                    <h3 class="text-xl font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <span>### 💡 3. Aplicação da Redução da Reforma Tributária</span>
+                    </h3>
+                    <p class="text-brand-800 mb-6">O PLP 68/24 (Regulamentação da Reforma Tributária) trouxe uma vitória fundamental para a categoria.</p>
+                    
+                    <ul class="space-y-4 text-brand-900">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-gift text-brand-600 mt-1"></i>
+                            <div><strong>* O Benefício:</strong> Profissionais liberais de natureza científica e intelectual (o que engloba a psicologia) terão direito a uma <strong>redução de 30% nas alíquotas do IBS e da CBS</strong> sobre a prestação de serviços.</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-comments text-brand-600 mt-1"></i>
+                            <div><strong>* Ação:</strong> Manter contato constante com o contador ao longo de 2026 para garantir que, quando o IBS e a CBS entrarem em vigor plenamente (substituindo o ISS e outros impostos), o sistema de emissão de notas da empresa já esteja configurado para aplicar esse redutor de 30% na carga tributária da clínica.</div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <br>
+        <br>
+
+        <!-- RESUMO / BLOCKQUOTE FINAL -->
+        <blockquote class="bg-gradient-to-r from-slate-800 to-slate-900 text-white rounded-3xl p-10 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-10 -mt-10 opacity-10">
+                <i class="fa-solid fa-quote-right text-9xl"></i>
+            </div>
+            <h3 class="text-2xl font-serif font-bold mb-4 flex items-center gap-3">
+                <i class="fa-solid fa-map-location-dot text-brand-400"></i> 
+                > Resumo Estratégico:
+            </h3>
+            <p class="text-lg font-light leading-relaxed text-slate-200">
+                Continuar como Pessoa Física é pagar caro pela "simplicidade". O plano de ação exige a contratação imediata de um contador, a abertura de uma SLU com CNAE de Psicologia, o enquadramento no Simples Nacional utilizando o Fator R (para reduzir a alíquota a 6%), e a centralização de todos os recebimentos em uma conta bancária PJ.
+            </p>
+        </blockquote>
+
+        <br>
+        <br>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <p>Desenvolvido de acordo com a Regulamentação Tributária Vigente (Base 2026/2027)</p>
+    </footer>
+
+</body>
+</html>
