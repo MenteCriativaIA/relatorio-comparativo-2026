@@ -765,6 +765,11 @@ function setView(v){
 }
 function render(){
   if(currentView==='cards') renderCards(); else renderTable();
+  
+  const controls = document.getElementById('comparativo');
+  if(controls && window.scrollY > controls.offsetTop) {
+    window.scrollTo({ top: controls.offsetTop - 70, behavior: 'smooth' });
+  }
 }
 
 // === SPARKLES ===
